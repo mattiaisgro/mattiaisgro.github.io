@@ -10,7 +10,6 @@ locale                   : "en-US"
 title                    : "Chaotic Thoughts"
 title_separator          : "-"
 name                     : &name "Mattia Isgrò"
-avatar                   : "profile.png"
 description              : &description "My blog where I write about physics, maths and programming"
 url                      : https://mattiaisgro.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
@@ -54,7 +53,7 @@ atom_feed:
 # Site Author
 author:
   name             : "Mattia Isgrò"
-  avatar           : 
+  avatar           : "profile.png"
   bio              : "I'm a physics student in Milan interested in theoretical and computational physics, mathematics and philosophy."
   location         : "Milan, Italy"
   github           : "mattiaisgro"
