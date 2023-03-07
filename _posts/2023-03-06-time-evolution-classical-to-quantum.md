@@ -88,7 +88,8 @@ $$
 
 This is exactly the time evolution operator and differs from its classical counterpart just by a scalar factor in the exponent which is typical of the change from classical to quantum mechanics (as immediately seen by the exchange of Poisson brackets and commutators).
 
-Considering only their action on functions, the first "classical" operator $\hat H$ that we defined is analogous to the Hamiltonian operator of quantum mechanics, as functionally $ \hat H = \{ \ \cdot \ , \ H \ \} = \frac{d}{dt}$, giving:
+Considering only their action on functions, the first "classical" operator $\hat H$ that we defined is analogous to the Hamiltonian operator of quantum mechanics, as functionally $\hat H = \{ \ \cdot \ , \ H \ \} = \frac{d}{dt}$, giving:
+
 $$
 \hat H f = \frac{d}{dt}f
 $$
