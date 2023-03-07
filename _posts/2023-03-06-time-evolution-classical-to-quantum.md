@@ -40,6 +40,37 @@ $$ Q_i = q_i + \epsilon \dot{q_i} + o(\epsilon) $$
 $$ P_i = p_i + \epsilon \dot{p_i} + o(\epsilon) $$
 
 This is the time evolution of trajectories over phase space at first order!
+The Hamiltonian is then a function generating an ICT which maps points over phase space to the points of the same phase space after an "infinitesimal" time $\epsilon$ has passed, over the trajectories of motion:
+$$ q_i (t + \epsilon) = q_i(t) + \epsilon \dot{q_i}(t) + o(\epsilon) $$
+$$ p_i (t + \epsilon) = p_i(t) + \epsilon \dot{p_i}(t) + o(\epsilon) $$
+
+Classical time evolution operator
+------
+We can go even a step further and define an operator $ \hat{H} = [\ \cdot \ , \ H \ ] $ which gives the time derivative of a function over phase space by the identity $ \dot f = [\ f \ , \ H \ ] $. If we exponentiate this operator, we obtain a new operator which acts upon a function like this:
+
+$$
+e^{t \hat H}f = (\ \sum_{n = 0}^{\infty} \frac{t^n}{n!} \hat{H}^n \ ) \ f
+= 1 + t \ [\ f \ , \ H \ ] + \frac{1}{2} t^2 \ [ \ [\ f \ , \ H \ ], \ H \ ]
+= 1 + \dot{f}t + \frac{1}{2}t^2 \ddot{f} + \ ...
+$$
+
+In this power series, the derivates should be evaluated at $t = 0$.
+{: .notice}
+
+This new operator evolves our system in time, given the initial conditions.
+
+A similar idea is used to construct _symplectic integrators_ in numerical methods.
+{: .notice}
+
+Applied to $q_i, p_i$, it gives back the previous result for small $t$ (the $\epsilon$ parameter is then time itself):
+
+$$ q_i(t) = \sum_{n = 0}^{\infty} \frac{t^n}{n!} (\frac{d^n}{dt^n} q_i)\,_{\rvert t = 0} = q_i(0) + t \ \dot{q_i}(0) + o(t) $$
+
+$$ p_i(t) = \sum_{n = 0}^{\infty} \frac{t^n}{n!} (\frac{d^n}{dt^n} p_i)\,_{\rvert t = 0} = p_i(0) + t \ \dot{p_i}(0) + o(t) $$
+
+Time evolution in quantum mechanics
+------
+
 
 
 Bibliography
