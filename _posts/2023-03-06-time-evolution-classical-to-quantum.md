@@ -50,11 +50,11 @@ This coherently comes around from the fact that the Hamiltonian function gives t
 
 Classical time evolution operator
 ------
-We can go even a step further and define an operator $ \hat{H} = \{\ \cdot \ , \ H \ \} $ which gives the time derivative of a function over phase space by the identity $ \dot f = \{\ f \ , \ H \ \} $ (provided $f$ has no explicit time dependence). If we exponentiate this operator, we obtain a new operator which acts upon a function like this:
+We can go even a step further and define an operator $\hat{H} = \{ \ \cdot \ , \ H \ \}$ which gives the time derivative of a function over phase space by the identity $ \dot f = \{\ f \ , \ H \ \} $ (provided $f$ has no explicit time dependence). If we exponentiate this operator, we obtain a new operator which acts upon a function like this:
 
 $$
-e^{t \hat H}f = (\ \sum_{n = 0}^{\infty} \frac{t^n}{n!} \hat{H}^n \ ) \ f
-= f + t \ \{\ f \ , \ H \ \} + \frac{1}{2} t^2 \ \{ \ \{\ f \ , \ H \ \}, \ H \ \}
+e^{t \hat H}f = (\ \sum_{n = 0}^{\infty} \frac{t^n}{n!} \hat{H}^n \ ) \ f  \\
+= f + t \ \{\ f \ , \ H \ \} + \frac{1}{2} t^2 \ \{ \ \{\ f \ , \ H \ \}, \ H \ \} \ + \ ... \\
 = f + t \dot{f} + \frac{1}{2} t^2 \ddot{f} + \ ...
 $$
 
@@ -91,7 +91,7 @@ This is exactly the time evolution operator and differs from its classical count
 Considering only their action on functions, the first "classical" operator $\hat H$ that we defined is analogous to the Hamiltonian operator of quantum mechanics, as functionally:
 
 $$
-\hat H f = \{ \ \cdot \ , \ H \ \} = \frac{d}{dt} f
+\hat H f = \{ \ f \ , \ H \ \} = \frac{d}{dt} f
 $$
 
 which is equivalent to Schrodinger's equation except for a factor $i \hbar$:
@@ -100,6 +100,11 @@ $$
 \hat H f = i \hbar \frac{d}{dt} f
 $$
 
+Schrodinger's equation could be deduced by making suppositions on the time evolution of the system, while the $\hbar$ factor is introduced to adjust dimensionally.
+{: .notice}
+
+
+This suggests a strong parallel between classical and quantum mechanics: **the Hamiltonian is the generator of the evolution of the system in time.**
 
 
 Bibliography
