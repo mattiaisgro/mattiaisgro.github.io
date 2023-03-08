@@ -1,6 +1,6 @@
 ---
 title: 'Time Evolution: From Classical to Quantum'
-date: 2023-03-06
+date: 2023-03-08
 permalink: /posts/2023/03/time-evolution-classical-to-quantum/
 tags:
   - quantum
