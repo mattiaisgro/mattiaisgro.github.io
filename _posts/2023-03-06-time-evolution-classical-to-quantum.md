@@ -50,7 +50,7 @@ This coherently comes around from the fact that the Hamiltonian function gives t
 
 Classical time evolution operator
 ------
-We can go even a step further and define an operator $\hat{H} = \{ \ \cdot \ , \ H \ \}$ which gives the time derivative of a function over phase space by the identity $ \dot f = \{\ f \ , \ H \ \} $ (provided $f$ has no explicit time dependence). If we exponentiate this operator, we obtain a new operator which acts upon a function like this:
+We can go even a step further and define an operator $\hat{H}=\\\{ \ \cdot \ , \ H \ \\\}$ which gives the time derivative of a function over phase space by the identity $\dot f = \\\{\ f \ , \ H \ \\\}$ (provided $f$ has no explicit time dependence). If we exponentiate this operator, we obtain a new operator which acts upon a function like this:
 
 $$
 e^{t \hat H}f = (\ \sum_{n = 0}^{\infty} \frac{t^n}{n!} \hat{H}^n \ ) \ f  \\
