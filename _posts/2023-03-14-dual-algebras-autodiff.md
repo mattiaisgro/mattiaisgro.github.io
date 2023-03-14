@@ -55,16 +55,19 @@ $$
 
 Considering a number $z = a + \epsilon b$ and $w = c + \epsilon d \ $ ($a, b, c, d \in \mathbb{R}$), we can compute its multiplication rules:
 
+<pre>
 $$
-z \cdot w = (a + \epsilon b) \cdot (c + \epsilon d) \\
-= ac + \epsilon bc + \epsilon ad = ac + \epsilon (bc + ad)
+z \cdot w = (a + \epsilon b) \cdot (c + \epsilon d) = ac + \epsilon bc + \epsilon ad = ac + \epsilon (bc + ad)
 $$
+</pre>
 
 It's interesting how the real part of the result is just the multiplication of the real parts of the starting numbers, while the "new" part of the result **mixes** the components. How about division? Can we compute it like with complex numbers?
 
+<pre>
 $$
-\frac{a + \epsilon b}{c + \epsilon d} = \frac{a + \epsilon b}{c + \epsilon d} \cdot \frac{c - \epsilon d}{c - \epsilon d} = \\ = \frac{ac + \epsilon (bc - ad)}{c^2} = \frac{a}{c} + \epsilon \frac{bc - ad}{c^2}
+\frac{a + \epsilon b}{c + \epsilon d} = \frac{a + \epsilon b}{c + \epsilon d} \cdot \frac{c - \epsilon d}{c - \epsilon d} = \frac{ac + \epsilon (bc - ad)}{c^2} = \frac{a}{c} + \epsilon \frac{bc - ad}{c^2}
 $$
+</pre>
 
 We see that it works unless $c = 0$, so we can't divide by a "pure" dual number. The formula we obtain is suspisciouly similar to another important equation.
 
@@ -82,28 +85,37 @@ $$
 
 This should begin to give away something about the way this algebra works... Let's see what happens if we feed these new numbers to a function and compute its Taylor expansion with respect to the "new" component $\epsilon$ :
 
+<pre>
 $$
 f(x + \epsilon b) = \sum_{n=0}^{\infty} \frac{\epsilon^n b^n}{n!} \frac{d^n}{dx^n} f(x) = f(x) + \epsilon b \frac{d}{dx} f(x)
 $$
+</pre>
 
 The series is again truncated and we clearly see that for $b = 1$, the real part of the result is just the function evaluated at $x$ and what we will now call its **dual** part is the derivative of $f$ at $x$.
 
 How about function composition? Remembering that $f(x + \epsilon b) = f(x) + \epsilon b f'(x)$:
 
+<pre>
 $$
-f(g(x + \epsilon)) = f(g(x) + \epsilon g'(x)) = \\
-= f(g(x)) + \epsilon g'(x) f'(g(x))
+f(g(x + \epsilon)) = f(g(x) + \epsilon g'(x)) = f(g(x)) + \epsilon g'(x) f'(g(x))
 $$
+</pre>
 
 The dual part is just the chain rule for the derivative of function composition! It is now clear that this new algebra behaves exactly like the derivative, keeping the primitive function in the real "slot" and its derivative in the dual "slot". The intuition behind evaluating the function at $x + \epsilon$ is that this dual number corresponds to $x$ with its derivative $1$ as dual part. Other properties of the derivative can be easily demonstrated:
 
+<pre>
 $$
 a \cdot f(x + \epsilon) = a f(x) + \epsilon a f'(x) \\
 f(x + \epsilon) \pm g(x + \epsilon) = f(x) \pm g(x) + \epsilon(f'(x) \pm g'(x)) \\
 f(x + \epsilon) \cdot g(x + \epsilon) = f(x)g(x) + \epsilon (f'(x) g(x) + f(x) g'(x))
 $$
+</pre>
 
-Thus by evaluating any regular function with a dual variable, we obtain its value and its derivative at any (non-singular) given point. The validity of dual numbers is quickly evident by considering polynomials: $f(z) = 3 z^3 + 5 z^2 + 2 z \implies f(x + \epsilon) = 3 x^3 + 5 x^2 + 2 x + \epsilon (9 x^2 + 10 x + 2)$. This result depends only on the multiplication rule we have found.
+Thus by evaluating any regular function with a dual variable, we obtain its value and its derivative at any (non-singular) given point. The validity of dual numbers is quickly evident by considering polynomials: 
+
+$$f(z) = 3 z^3 + 5 z^2 + 2 z \\ \implies f(x + \epsilon) = 3 x^3 + 5 x^2 + 2 x + \epsilon (9 x^2 + 10 x + 2)$$
+
+This result depends only on the multiplication rule we have found.
 
 Considering the equation $f(x + \epsilon) = f(x) + \epsilon f'(x)$ you may be tempted to redefine the derivative as:
 
