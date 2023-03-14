@@ -106,9 +106,11 @@ $$
 Thus by evaluating any regular function with a dual variable, we obtain its value and its derivative at any (non-singular) given point. The validity of dual numbers is quickly evident by considering polynomials: $f(z) = 3 z^3 + 5 z^2 + 2 z \implies f(x + \epsilon) = 3 x^3 + 5 x^2 + 2 x + \epsilon (9 x^2 + 10 x + 2)$. This result depends only on the multiplication rule we have found.
 
 Considering the equation $f(x + \epsilon) = f(x) + \epsilon f'(x)$ you may be tempted to redefine the derivative as:
+
 $$
 \frac{f(x + \epsilon) - f(x)}{\epsilon} \neq f'(x)
 $$
+
 But this is not well defined as division by a pure dual number leads to division by zero, as previously seen. We can instead define operators similar to those on complex numbers, extracting the real and dual parts, $Real(a + \epsilon b) = a$ and $Dual(a + \epsilon b) = b$:
 
 $$
@@ -147,6 +149,9 @@ Dual numbers have been extensively developed in [Theoretica](https://www.github.
 
 Additional notes
 ------
-- A matrix representation of this dual algebra is, for $z = a + \epsilon b$: $\begin{pmatrix} a & b \\ 0 & a \end{pmatrix}$
+- A matrix representation of this dual algebra is, for $z = a + \epsilon b$:
+
+$$\begin{pmatrix} a & b \\ 0 & a \end{pmatrix}$$
+
 - It is also possible to construct n-order dual algebras which compute the n-th derivative, using the *Ansatz* : $\epsilon^n = 0$ (but new rules have to be added).
 - Dual numbers and their generalizations find applications in physics, for the study of fermions for example.
