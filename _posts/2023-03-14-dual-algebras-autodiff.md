@@ -1,6 +1,6 @@
 ---
 title: 'Dual Algebras and Automatic Differentiation'
-date: 2023-03-08
+date: 2023-03-14
 permalink: /posts/2023/03/dual-algebras-autodiff/
 tags:
   - maths
@@ -24,7 +24,7 @@ An all-encompassing problem in science and mathematics is the computation of der
 Symbolic differentiation works by considering the function as a composition of symbols, usually converted from a string of characters written by a user, and successively applying derivation rules on the symbols, giving as result a symbolic representation of the derivative of the function. This method is useful when such a result is needed for further study but may not be immediate to obtain by hand. For example, in a hypothetical symbolic representation:
 
 $$
-f(x) = x^2 e^x \ \stackrel{symbol}{\rightarrow} \  mul(pow(x, 2), exp(x)) \\
+f(x) = x^2 e^x \\ \stackrel{symbol}{\rightarrow} \  mul(pow(x, 2), exp(x)) \\
 \stackrel{\frac{d}{dx}}{\rightarrow} \ sum(mul(mul(2, x), exp(x)), mul(pow(x, 2), exp(x))) \\
 \stackrel{string}{\rightarrow} \ 2x e^x + x^2 e^x
 $$
@@ -56,13 +56,14 @@ $$
 Considering a number $z = a + \epsilon b$ and $w = c + \epsilon d \ $ ($a, b, c, d \in \mathbb{R}$), we can compute its multiplication rules:
 
 $$
-z \cdot w = (a + \epsilon b) \cdot (c + \epsilon d) = ac + \epsilon bc + \epsilon ad = ac + \epsilon (bc + ad)
+z \cdot w = (a + \epsilon b) \cdot (c + \epsilon d) \\
+= ac + \epsilon bc + \epsilon ad = ac + \epsilon (bc + ad)
 $$
 
 It's interesting how the real part of the result is just the multiplication of the real parts of the starting numbers, while the "new" part of the result **mixes** the components. How about division? Can we compute it like with complex numbers?
 
 $$
-\frac{a + \epsilon b}{c + \epsilon d} = \frac{a + \epsilon b}{c + \epsilon d} \cdot \frac{c - \epsilon d}{c - \epsilon d} = \frac{ac + \epsilon (bc - ad)}{c^2} = \frac{a}{c} + \epsilon \frac{bc - ad}{c^2}
+\frac{a + \epsilon b}{c + \epsilon d} = \frac{a + \epsilon b}{c + \epsilon d} \cdot \frac{c - \epsilon d}{c - \epsilon d} = \\ = \frac{ac + \epsilon (bc - ad)}{c^2} = \frac{a}{c} + \epsilon \frac{bc - ad}{c^2}
 $$
 
 We see that it works unless $c = 0$, so we can't divide by a "pure" dual number. The formula we obtain is suspisciouly similar to another important equation.
@@ -90,18 +91,29 @@ The series is again truncated and we clearly see that for $b = 1$, the real part
 How about function composition? Remembering that $f(x + \epsilon b) = f(x) + \epsilon b f'(x)$:
 
 $$
-f(g(x + \epsilon)) = f(g(x) + \epsilon g'(x)) = f(g(x)) + \epsilon g'(x) f'(g(x))
+f(g(x + \epsilon)) = f(g(x) + \epsilon g'(x)) = \\
+= f(g(x)) + \epsilon g'(x) f'(g(x))
 $$
 
 The dual part is just the chain rule for the derivative of function composition! It is now clear that this new algebra behaves exactly like the derivative, keeping the primitive function in the real "slot" and its derivative in the dual "slot". The intuition behind evaluating the function at $x + \epsilon$ is that this dual number corresponds to $x$ with its derivative $1$ as dual part. Other properties of the derivative can be easily demonstrated:
 
 $$
-a \cdot f(x + \epsilon) = a (f(x) + \epsilon f'(x)) = a f(x) + \epsilon a f'(x) \\
+a \cdot f(x + \epsilon) = a f(x) + \epsilon a f'(x) \\
 f(x + \epsilon) \pm g(x + \epsilon) = f(x) \pm g(x) + \epsilon(f'(x) \pm g'(x)) \\
 f(x + \epsilon) \cdot g(x + \epsilon) = f(x)g(x) + \epsilon (f'(x) g(x) + f(x) g'(x))
 $$
 
-Thus by evaluating any regular function with a dual variable, we obtain its value and its derivative at any (non-singular) given point. The validity of dual numbers is quickly evident by considering polynomials: $f(z) = 3 z^3 + 5 z^2 + 2 z \in P[\mathbb{R}_{\epsilon}]$ (dual numbers are often labeled $\mathbb{R}_{\epsilon}$), $f(x + \epsilon) = 3 x^3 + 5 x^2 + 2 x + \epsilon (9 x^2 + 10 x + 2)$. This result depends only on the multiplication rule we have found.
+Thus by evaluating any regular function with a dual variable, we obtain its value and its derivative at any (non-singular) given point. The validity of dual numbers is quickly evident by considering polynomials: $f(z) = 3 z^3 + 5 z^2 + 2 z \implies f(x + \epsilon) = 3 x^3 + 5 x^2 + 2 x + \epsilon (9 x^2 + 10 x + 2)$. This result depends only on the multiplication rule we have found.
+
+Considering the equation $f(x + \epsilon) = f(x) + \epsilon f'(x)$ you may be tempted to redefine the derivative as:
+$$
+\frac{f(x + \epsilon) - f(x)}{\epsilon} \neq f'(x)
+$$
+But this is not well defined as division by a pure dual number leads to division by zero, as previously seen. We can instead define operators similar to those on complex numbers, extracting the real and dual parts, $Real(a + \epsilon b) = a$ and $Dual(a + \epsilon b) = b$:
+
+$$
+f'(x) = Dual[f(x + \epsilon) - f(x)] = Dual[f(x + \epsilon)]
+$$
 
 Automatic differentiation
 ------
@@ -121,7 +133,7 @@ dual sqrt(dual x) {
 }
 
 dual f(dual x) {
-	return x * x * sqrt(x);
+	return x * sqrt(x);
 }
 
 real df(real x) {
