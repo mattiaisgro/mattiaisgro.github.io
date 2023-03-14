@@ -24,9 +24,9 @@ An all-encompassing problem in science and mathematics is the computation of der
 Symbolic differentiation works by considering the function as a composition of symbols, usually converted from a string of characters written by a user, and successively applying derivation rules on the symbols, giving as result a symbolic representation of the derivative of the function. This method is useful when such a result is needed for further study but may not be immediate to obtain by hand. For example, in a hypothetical symbolic representation:
 
 $$
-f(x) = x^2 e^x \\ \stackrel{symbol}{\rightarrow} \  mul(pow(x, 2), exp(x)) \\
-\stackrel{\frac{d}{dx}}{\rightarrow} \ sum(mul(mul(2, x), exp(x)), mul(pow(x, 2), exp(x))) \\
-\stackrel{string}{\rightarrow} \ 2x e^x + x^2 e^x
+f(x) = x e^x \\ \stackrel{symbol}{\rightarrow} \  mul(x, exp(x)) \\
+\stackrel{\frac{d}{dx}}{\rightarrow} \ sum(exp(x), mul(x, exp(x))) \\
+\stackrel{string}{\rightarrow} \ e^x + x e^x
 $$
 
 This process gives back the exact formula for the derivative but is more computationally demanding, especially if the only interest is to evaluate the derivative at few points.
@@ -57,16 +57,17 @@ Considering a number $z = a + \epsilon b$ and $w = c + \epsilon d \ $ ($a, b, c,
 
 $$
 z \cdot w = (a + \epsilon b) \cdot (c + \epsilon d) \\
-= ac + \epsilon bc + \epsilon ad = ac + \epsilon (bc + ad)
+= ac + \epsilon (bc + ad)
 $$
 
 It's interesting how the real part of the result is just the multiplication of the real parts of the starting numbers, while the "new" part of the result **mixes** the components. How about division? Can we compute it like with complex numbers?
 
 $$
-\frac{a + \epsilon b}{c + \epsilon d} = \frac{a + \epsilon b}{c + \epsilon d} \cdot \frac{c - \epsilon d}{c - \epsilon d} = \\ = \frac{ac + \epsilon (bc - ad)}{c^2} = \frac{a}{c} + \epsilon \frac{bc - ad}{c^2}
+\frac{a + \epsilon b}{c + \epsilon d} = \frac{a + \epsilon b}{c + \epsilon d} \cdot \frac{c - \epsilon d}{c - \epsilon d} \\
+= \frac{a}{c} + \epsilon \frac{bc - ad}{c^2}
 $$
 
-We see that it works unless $c = 0$, so we can't divide by a "pure" dual number. The formula we obtain is suspisciouly similar to another important equation.
+We see that it works unless $c = 0$, so we can't divide by a "pure" number. The formula we obtain is suspisciouly similar to another important equation.
 
 Let's try to exponentiate this new kind of number:
 
@@ -99,7 +100,8 @@ The dual part is just the chain rule for the derivative of function composition!
 
 Thus by evaluating any regular function with a dual variable, we obtain its value and its derivative at any (non-singular) given point. The validity of dual numbers is quickly evident by considering polynomials:
 
-$$f(z) = 3 z^3 + 5 z^2 + 2 z \\ \implies f(x + \epsilon) = 3 x^3 + 5 x^2 + 2 x + \epsilon (9 x^2 + 10 x + 2)$$
+$$f(z) = 5 z^2 + 2 z \\
+f(x + \epsilon) = 5 x^2 + 2 x + \epsilon (10 x + 2)$$
 
 This result depends only on the multiplication rule we have found. Considering equation (6) you may be tempted to redefine the derivative as:
 
@@ -110,7 +112,7 @@ $$
 But this is not well defined as division by a pure dual number leads to division by zero, as previously seen. We can instead define operators similar to those on complex numbers, extracting the real and dual parts, $Real(a + \epsilon b) = a$ and $Dual(a + \epsilon b) = b$:
 
 $$
-f'(x) = Dual[f(x + \epsilon) - f(x)] = Dual[f(x + \epsilon)]
+\boxed{f'(x) = Dual[f(x + \epsilon)]}
 $$
 
 Automatic differentiation
