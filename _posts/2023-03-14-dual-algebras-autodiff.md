@@ -48,23 +48,23 @@ Complex numbers are usually introduced by defining $i^2 = -1$ and considering it
 Following a similar idea, we can start from the *Ansatz* :
 
 $$
-\epsilon^2 = 0
+\varepsilon^2 = 0
 $$
 
-(It can be demonstrated that the only interesting cases with power 2 are $k^2 \in \{-1, 0, 1\}$, where $k$ is the new basis element $i$, $\epsilon$ or $j$, giving rise to imaginary, dual or hyperbolic numbers)
+(It can be demonstrated that the only interesting cases with power 2 are $k^2 \in \{-1, 0, 1\}$, where $k$ is the new basis element $i$, $\varepsilon$ or $j$, giving rise to imaginary, dual or hyperbolic numbers)
 
-Considering a number $z = a + \epsilon b$ and $w = c + \epsilon d \ $ ($a, b, c, d \in \mathbb{R}$), we can compute its multiplication rules:
+Considering a number $z = a + \varepsilon b$ and $w = c + \varepsilon d \ $ ($a, b, c, d \in \mathbb{R}$), we can compute its multiplication rules:
 
 $$
-z \cdot w = (a + \epsilon b) \cdot (c + \epsilon d) \\
-= ac + \epsilon (bc + ad)
+z \cdot w = (a + \varepsilon b) \cdot (c + \varepsilon d) \\
+= ac + \varepsilon (bc + ad)
 $$
 
 It's interesting how the real part of the result is just the multiplication of the real parts of the starting numbers, while the "new" part of the result **mixes** the components. How about division? Can we compute it like with complex numbers?
 
 $$
-\frac{a + \epsilon b}{c + \epsilon d} = \frac{a + \epsilon b}{c + \epsilon d} \cdot \frac{c - \epsilon d}{c - \epsilon d} \\
-= \frac{a}{c} + \epsilon \frac{bc - ad}{c^2}
+\frac{a + \varepsilon b}{c + \varepsilon d} = \frac{a + \varepsilon b}{c + \varepsilon d} \cdot \frac{c - \varepsilon d}{c - \varepsilon d} \\
+= \frac{a}{c} + \varepsilon \frac{bc - ad}{c^2}
 $$
 
 We see that it works unless $c = 0$, so we can't divide by a "pure" number. The formula we obtain is suspisciouly similar to another important equation.
@@ -72,19 +72,19 @@ We see that it works unless $c = 0$, so we can't divide by a "pure" number. The 
 Let's try to exponentiate this new kind of number:
 
 $$
-e^{\epsilon z} = \sum_{n=0}^{\infty} \frac{1}{n!} \epsilon^n z^n = 1 + \epsilon z
+e^{\varepsilon z} = \sum_{n=0}^{\infty} \frac{1}{n!} \varepsilon^n z^n = 1 + \varepsilon z
 $$
 
-The series is **truncated** because $\epsilon^n = 0$ for any $n \geq 2$. Adding a real part to the exponential gives:
+The series is **truncated** because $\varepsilon^n = 0$ for any $n \geq 2$. Adding a real part to the exponential gives:
 
 $$
-e^{x + \epsilon b} = e^x + \epsilon b e^x
+e^{x + \varepsilon b} = e^x + \varepsilon b e^x
 $$
 
-This should begin to give away something about the way this algebra works... Let's see what happens if we feed these new numbers to a function and compute its Taylor expansion with respect to the "new" component $\epsilon$ :
+This should begin to give away something about the way this algebra works... Let's see what happens if we feed these new numbers to a function and compute its Taylor expansion with respect to the "new" component $\varepsilon$ :
 
 $$
-f(x + \epsilon b) = \sum_{n=0}^{\infty} \frac{\epsilon^n b^n}{n!} \frac{d^n}{dx^n} f(x) \\ = f(x) + \epsilon b \frac{d}{dx} f(x)
+f(x + \varepsilon b) = \sum_{n=0}^{\infty} \frac{\varepsilon^n b^n}{n!} \frac{d^n}{dx^n} f(x) \\ = f(x) + \varepsilon b \frac{d}{dx} f(x)
 $$
 
 The series is again truncated and we clearly see that for $b = 1$, the real part of the result is just the function evaluated at $x$ and what we will now call its **dual** part is the derivative of $f$ at $x$.
@@ -92,27 +92,27 @@ The series is again truncated and we clearly see that for $b = 1$, the real part
 How about function composition? Remembering equation (6):
 
 $$
-f(g(x + \epsilon)) = f(g(x) + \epsilon g'(x)) \\
-= f(g(x)) + \epsilon g'(x) f'(g(x))
+f(g(x + \varepsilon)) = f(g(x) + \varepsilon g'(x)) \\
+= f(g(x)) + \varepsilon g'(x) f'(g(x))
 $$
 
-The dual part is just the chain rule for the derivative of function composition! It is now clear that this new algebra behaves exactly like the derivative, keeping the primitive function in the real "slot" and its derivative in the dual "slot". The intuition behind evaluating the function at $x + \epsilon$ is that this dual number corresponds to $x$ with its derivative $1$ as dual part. Other properties of the derivative can be easily demonstrated.
+The dual part is just the chain rule for the derivative of function composition! It is now clear that this new algebra behaves exactly like the derivative, keeping the primitive function in the real "slot" and its derivative in the dual "slot". The intuition behind evaluating the function at $x + \varepsilon$ is that this dual number corresponds to $x$ with its derivative $1$ as dual part. Other properties of the derivative can be easily demonstrated.
 
 Thus by evaluating any regular function with a dual variable, we obtain its value and its derivative at any (non-singular) given point. The validity of dual numbers is quickly evident by considering polynomials:
 
 $$f(z) = 5 z^2 + 2 z \\
-f(x + \epsilon) = 5 x^2 + 2 x + \epsilon (10 x + 2)$$
+f(x + \varepsilon) = 5 x^2 + 2 x + \varepsilon (10 x + 2)$$
 
 This result depends only on the multiplication rule we have found. Considering equation (6) you may be tempted to redefine the derivative as:
 
 $$
-\frac{f(x + \epsilon) - f(x)}{\epsilon} \neq f'(x)
+\frac{f(x + \varepsilon) - f(x)}{\varepsilon} \neq f'(x)
 $$
 
-But this is not well defined as division by a pure dual number leads to division by zero, as previously seen. We can instead define operators similar to those on complex numbers, extracting the real and dual parts, $Real(a + \epsilon b) = a$ and $Dual(a + \epsilon b) = b$:
+But this is not well defined as division by a pure dual number leads to division by zero, as previously seen. We can instead define operators similar to those on complex numbers, extracting the real and dual parts, $Real(a + \varepsilon b) = a$ and $Dual(a + \varepsilon b) = b$:
 
 $$
-\boxed{f'(x) = Dual[f(x + \epsilon)]}
+\boxed{f'(x) = Dual[f(x + \varepsilon)]}
 $$
 
 Automatic differentiation
@@ -141,15 +141,15 @@ real df(real x) {
 }
 ```
 
-All we have to do is evaluate the target function at $x + \epsilon$, for any $x$ we want, and we automatically get the (hoping no cosmic ray bursts into our laptop) correct result. Automatic differentiation is thus a powerful middle ground between symbolic and numerical differentiation.
+All we have to do is evaluate the target function at $x + \varepsilon$, for any $x$ we want, and we automatically get the (hoping no cosmic ray bursts into our laptop) correct result. Automatic differentiation is thus a powerful middle ground between symbolic and numerical differentiation.
 
 Dual numbers have been extensively developed in [Theoretica](https://www.github.com/chaotic-society/theoretica). The *dual.h* and *dual_functions.h* files include a complete implementation of the ideas inside this post. Other files in the *autodiff* folder implement more advanced algebras which I will cover in future posts.
 
 Additional notes
 ------
-- A matrix representation of this dual algebra is, for $z = a + \epsilon b$:
+- A matrix representation of this dual algebra is, for $z = a + \varepsilon b$:
 
 $$\begin{pmatrix} a & b \\ 0 & a \end{pmatrix}$$
 
-- It is also possible to construct n-order dual algebras which compute the n-th derivative, using the *Ansatz* : $\epsilon^n = 0$ (but new rules have to be added).
+- It is also possible to construct n-order dual algebras which compute the n-th derivative, using the *Ansatz* : $\varepsilon^n = 0$ (but new rules have to be added).
 - Dual numbers and their generalizations find applications in physics, for the study of fermions for example.
