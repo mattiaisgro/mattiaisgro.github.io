@@ -98,7 +98,7 @@ $$
 which is equivalent to Schrodinger's equation except for a factor $i \hbar$:
 
 $$
-\hat H f = i \hbar \frac{d}{dt} f
+\hat H f = i \hbar \frac{\partial}{\partial t} f
 $$
 
 Schrodinger's equation could be deduced by making suppositions on the time evolution of the system, while the $\hbar$ factor is introduced to adjust dimensionally.
