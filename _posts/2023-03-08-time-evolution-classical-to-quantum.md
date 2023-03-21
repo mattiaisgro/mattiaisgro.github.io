@@ -64,9 +64,9 @@ In this power series, the functions should be evaluated at $t = 0$.
 
 Applied to $q_i, p_i$, it gives back the previous result for small $t$ (the $\epsilon$ parameter is then time itself):
 
-$$ q_i(t) = \sum_{n = 0}^{\infty} \frac{t^n}{n!} (\frac{d^n}{dt^n} q_i)\,_{\rvert t = 0} = q_i(0) + t \ \dot{q_i}(0) + o(t) $$
+$$ q_i(t) = \sum_{n = 0}^{\infty} \frac{t^n}{n!} (\frac{d^n}{dt^n} q_i)\,_{\rvert t = 0} \\ = q_i(0) + t \ \dot{q_i}(0) + o(t) $$
 
-$$ p_i(t) = \sum_{n = 0}^{\infty} \frac{t^n}{n!} (\frac{d^n}{dt^n} p_i)\,_{\rvert t = 0} = p_i(0) + t \ \dot{p_i}(0) + o(t) $$
+$$ p_i(t) = \sum_{n = 0}^{\infty} \frac{t^n}{n!} (\frac{d^n}{dt^n} p_i)\,_{\rvert t = 0} \\ = p_i(0) + t \ \dot{p_i}(0) + o(t) $$
 
 A similar idea is used to construct _symplectic integrators_ in numerical methods.
 {: .notice}
