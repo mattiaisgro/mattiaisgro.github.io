@@ -51,7 +51,7 @@ $$
 \varepsilon^2 = 0
 $$
 
-(It can be demonstrated that the only interesting cases with power 2 are $k^2 \in \{-1, 0, 1\}$, where $k$ is the new basis element $i$, $\varepsilon$ or $j$, giving rise to imaginary, dual or hyperbolic numbers)
+(It can be demonstrated that the only interesting cases with power 2 are $k^2 = -1, 0, 1$ where $k$ is the new basis element $i$, $\varepsilon$ or $j$, giving rise to imaginary, dual or hyperbolic numbers respectively)
 
 Considering a number $z = a + \varepsilon b$ and $w = c + \varepsilon d \ $ ($a, b, c, d \in \mathbb{R}$), we can compute its multiplication rules:
 
@@ -67,7 +67,7 @@ $$
 = \frac{a}{c} + \varepsilon \frac{bc - ad}{c^2}
 $$
 
-We see that it works unless $c = 0$, so we can't divide by a "pure" number. The formula we obtain is suspisciouly similar to another important equation.
+We see that it works unless $c = 0$, so we can't divide by a scalar multiple of $\varepsilon$. The formula we obtain is suspisciouly similar to another important equation.
 
 Let's try to exponentiate this new kind of number:
 
@@ -112,30 +112,41 @@ $$
 But this is not well defined as division by a pure dual number leads to division by zero, as previously seen. We can instead define operators similar to those on complex numbers, extracting the real and dual parts, $Real(a + \varepsilon b) = a$ and $Dual(a + \varepsilon b) = b$:
 
 $$
-\boxed{f'(x) = Dual[f(x + \varepsilon)]}
+f'(x) = Dual[f(x + \varepsilon)]
 $$
 
 Automatic differentiation
 ------
 
-After all of these formulas, this may appear as yet another mathematical abstraction, but it's quite the opposite. We can program a class (or generic construct) following the rules of this dual algebra in any programming language and define common mathematical functions to operate on such numbers, getting as result of our computations the value of the function at a given point and its derivative, at the same time!
+After all of these formulas, this may appear as yet another mathematical abstraction, but it's quite the opposite. We can program a class (or generic construct) following the rules of this dual algebra in any programming language and define common mathematical functions to operate on such numbers, getting as the result of our computations the value of the function at a given point and its derivative, at the same time!
 
 ```cpp
 class dual {
 
 	real a, b;
     
-    ...
+    dual(real a, real b) {
+    	this->a = a;
+        this->b = b;
+    }
+    
+    // +, -, *, / operators ...
 }
 
+// Define common functions like the square root, the n-th power and so on
 dual sqrt(dual x) {
-	return dual(sqrt(x.a), epsilon * x.b / (2 * sqrt(x.a)));
+	return dual(
+    	sqrt(x.a), // f(x)
+    	epsilon * x.b / (2 * sqrt(x.a)) // b * df(x)/dx
+	);
 }
 
+// Example function
 dual f(dual x) {
 	return x * sqrt(x);
 }
 
+// Encapsulates the derivative of f(x)
 real df(real x) {
 	return f(x + epsilon).b;
 }
