@@ -92,10 +92,10 @@ This is exactly the time evolution operator and differs from its classical count
 Considering only their action on functions, the first "classical" operator $\hat H$ that we defined is analogous to the Hamiltonian operator of quantum mechanics, as functionally:
 
 $$
-\hat H f = \{ \ f \ , \ H \ \} = \frac{d}{dt} f
+\hat H f = \frac{d}{dt} f
 $$
 
-which is equivalent to Schrodinger's equation except for a factor $i \hbar$:
+which is almost equivalent to Schrodinger's equation except for a factor $i \hbar$:
 
 $$
 \hat H f = i \hbar \frac{\partial}{\partial t} f
