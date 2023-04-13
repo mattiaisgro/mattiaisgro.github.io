@@ -6,10 +6,10 @@ tags:
   - maths
   - ode
 
-abstract: "We introduce an operator formalism for the solution of ordinary differential equations using series expansion. These operators make it possible to easily map a differential equation into an algebraic equation."
+abstract: "We present an operator formalism for the solution of ordinary differential equations using series expansion. These operators make it possible to easily map a differential equation into an algebraic equation."
 ---
 
-_Abstract:_ We introduce an operator formalism for the solution of ordinary differential equations using series expansion. These operators make it possible to easily map a differential equation into an algebraic equation.
+_Abstract:_ We present an operator formalism for the solution of ordinary differential equations using series expansion. These operators make it possible to easily map a differential equation into an algebraic equation.
 
 _Prerequisites:_ Real Analysis, Algebra, Operators
 
@@ -101,7 +101,7 @@ $$
 \frac{d}{dx} \sum_{n = 0}^\infty a_n x^n = \sum_{n = 1}^\infty n a_n x^{n - 1} \\ = \sum_{n = 0}^\infty (n + 1) a_{n + 1} x^n
 $$
 
-First we drop a factor $n$ and divide by $x$, then we shift the whole expression by $1$ in $n$. **By always shifting the sum to get $x^n$, we can equate the terms in different sums immediately**. If we define these new operators keeping this in mind, we can drop the sum notation and work directly on the coefficients $a_n$. More formally, we can define a **derivative operator** that acts on the sequence of coefficients like this:
+First we drop a factor $n$ and divide by $x$, then we shift the whole expression by $1$ in $n$. **By always shifting the sum to get $x^n$, we can equate the terms in different sums immediately**. If we define new operators keeping this in mind, we can drop the sum notation and work directly on the coefficients $a_n$. More formally, we can define a **derivative operator** that acts on the sequence of coefficients like this:
 
 $$
 \hat{D} f(n) a_{g(n)}= (n + 1) f(n + 1) a_{g(n + 1)}
