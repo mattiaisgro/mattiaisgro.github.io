@@ -452,6 +452,12 @@ n(n - 1) a_n + n a_n + a_{n - 2} = 0 \\
 a_n = -\frac{a_{n - 2}}{n^2}
 $$
 
+Considering that $a_1 = 0$, all even coefficients are zero, so the general formula is:
+
+$$
+a_{2n} = (-1)^n \frac{a_0}{4^n (n!)^2}
+$$
+
 ## Conclusion
 I derived these results on my own, as I was reflecting on the mechanical nature of series expansions, so they should be taken with a grain of salt. I am confident that similar results have already been found, although I wasn't able to find existing literature on the topic. This formalism proves really useful for the solution of ODEs, although nonlinear differential equations are not tractable with this method. Numerical applications will be investigated in future articles, as well as a more rigorous formalization of the results and other forms of series expansion.
 
