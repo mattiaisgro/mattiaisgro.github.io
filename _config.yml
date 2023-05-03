@@ -54,7 +54,7 @@ atom_feed:
 author:
   name             : "Mattia Isgrò"
   avatar           : "profile.png"
-  bio              : "I'm a physics student in Milan interested in theoretical and computational physics, mathematics and philosophy. I am lead developer of <a href="/chaotic-society/theoretica">Theoretica</a>"
+  bio              : "I'm a physics student in Milan interested in theoretical and computational physics, mathematics and philosophy. I am lead developer of Theoretica"
   location         : "Milan, Italy"
   github           : "mattiaisgro"
   impactstory      : #"https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
