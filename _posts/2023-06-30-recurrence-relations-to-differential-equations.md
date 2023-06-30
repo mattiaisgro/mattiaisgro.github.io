@@ -15,7 +15,7 @@ _Prerequisites:_ Real Analysis, Algebra, Operators
 
 ## Sequence operators on series expansions
 
-In a previous [article](mattiaisgro.github.io/posts/2023/04/sequence-operators-differential-equations/), I introduced a system of operators on power series which proved to be useful for the solution of differential equations by series expansion. The main takeaway was that by considering how different operations act on the solution and by always re-indexing the series index, we can drop the series notation and work with a few operators only:
+In a previous [article](https://mattiaisgro.github.io/posts/2023/04/sequence-operators-differential-equations/), I introduced a system of operators on power series which proved to be useful for the solution of differential equations by series expansion. The main takeaway was that by considering how different operations act on the solution and by always re-indexing the series index, we can drop the series notation and work with a few operators only:
 
 $$
 y \rightarrow a_n \\
