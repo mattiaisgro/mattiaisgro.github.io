@@ -1,5 +1,5 @@
 ---
-title: 'From Recurrence Relations to Differential Equations: "Generating Differential Equations'
+title: 'Sequence Operators: From Recurrence Relations to Differential Equations'
 date: 2023-06-30
 permalink: /posts/2023/05/recurrence-relations-to-differential-equations/
 tags:
@@ -69,10 +69,11 @@ $$
 As a result:
 
 $$
-a_n = F(n, a_{g(n)}) \ \rightarrow \ y^{(n)} = f(x, y, y', ...)
+a_n = F(n, a_{g(n)}) \\
+\rightarrow \ y^{(n)} = f(x, y, y', ...)
 $$
 
-The initial differential equation may be recovered, but there does not need to be an initial equation in the first place. We could just have a (linear) recurrence relation and wanted to find a differential equation of which it is a solution by series expansion.
+The initial differential equation may be recovered, but there does not need to be an initial equation in the first place. We could just have a (linear) recurrence relation and wanted to find a differential equation of which it is a solution by series expansion, giving rise to the concept of *generating differential equation*, analogous to *generating functions*.
 
 
 ## Example 1: Bessel's differential equation
@@ -93,8 +94,9 @@ Care should be taken in squaring $(\hat X \hat D)$, as they do not commute and s
 
 $$
 \hat X \hat D \hat X \hat D a_n + \hat X^2 a_n = 0 \\
-x \frac{d}{dx} x \frac{d}{dx} y + x^2 y = x \frac{d}{dx} (xy') + x^2 y \\
-x (y' + xy'') + x^2y = x^2 y'' + xy' + x^2y
+x \frac{d}{dx} x \frac{d}{dx} y + x^2 y \\
+= x \frac{d}{dx} (xy') + x^2 y \\
+= x^2 y'' + xy' + x^2y
 $$
 
 Thus the initial equation is recovered.
@@ -113,9 +115,9 @@ $$
 (n + 1) C_n = (4n - 2) C_{n - 1} \\
 (\hat N + 1) C_n = (4 \hat N - 2) \hat S^{-1} C_n \\
 (\hat X \hat D + 1) C_n - (4 \hat X \hat D - 2) \hat X C_n = 0 \\
-(x \frac{d}{dx} + 1) y - (4x \frac{d}{dx} - 2) x y = 0 \\
-x \frac{d}{dx} y + y - 4x \frac{d}{dx} x y + 2 xy = 0 \\
-xy' + y - 4x (y + xy') + 2xy = 0 \\
+(x \frac{d}{dx} + 1) y - (4x \frac{d}{dx} - 2) x y \\
+= x \frac{d}{dx} y + y - 4x \frac{d}{dx} x y + 2 xy \\
+= xy' + y - 4x (y + xy') + 2xy \\
 $$
 
 Giving as a result the differential equation:
@@ -130,7 +132,7 @@ $$
 y = \sum_{n = 0}^\infty C_n x^n = 1 + x + 2 x^2 + 5 x^3 + \ ...
 $$
 
-Its correctedness can be demonstrated by using again the series expansion method.
+Its correctness can be demonstrated by using again the series expansion method.
 
 ## Edge cases
 
