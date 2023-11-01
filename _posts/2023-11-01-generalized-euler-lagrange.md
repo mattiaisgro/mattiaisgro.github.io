@@ -26,7 +26,7 @@ $$
 This equation can be derived from the principle of stationary action and is a cornerstone of physics and a fundamental equation in the calculus of variations. In this context, it is the differential equation whose solutions make a given *functional* stationary:
 
 $$
-\delta I = \int \delta +L(q, \dot q) \ dt = 0
+\delta I = \int \delta L(q, \dot q) \ dt = 0
 $$
 
 It is important to note that the Euler-Lagrange equation (in this form) can only work for a functional with explicit dependency up to the first derivative, as it doesn't take into account higher derivatives. It is the objective of this article to derive higher order formulas and consider the applicability of such models. This limitation is usually not a problem in classical mechanics, where systems are commonly first order, as the Lagrangian and the energy do not depend on the acceleration but only on positions and velocities. We can easily derive the Euler-Lagrange equation for the Lagrangian by exchanging the time derivative from $\delta q$ to the partial derivative in $L$ (at first order in the expansion):
