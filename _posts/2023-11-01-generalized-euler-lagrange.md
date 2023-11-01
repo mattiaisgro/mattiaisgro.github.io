@@ -219,14 +219,12 @@ $$
 \int d^4x \ \delta q \ (\frac{\partial \mathscr{L}}{\partial \phi} + \ ... \ + (-1)^n\partial_{\mu_1} ... \partial_{\mu_n} \frac{\partial \mathscr{L}}{\partial_{\mu_1} ... \partial_{\mu_n} \phi})
 $$
 
-As before, we may want to simplify this formula down to a sum, but this time we need to consider the sums on the indices $\mu_i$. To this purpose, we may define a differential operator which computes the $n$-th order derivatives using tensor notation:
+As before, we may want to simplify this formula down to a sum, but this time we need to consider the sums on the contracted indices $\mu_i$. To this purpose, we may define a differential operator which computes the $n$-th order derivatives using tensor notation:
 
-$$
-\Delta^n_{\mu} = \prod_{j = 0}^n \partial_{\mu_j} \\
-\Delta^0_{\mu} = 1
-$$
+$$\Delta^n_{\mu} = \prod_{j = 0}^n \partial_{\mu_j} \\
+\Delta^0_{\mu} = 1$$
 
-For example, $\Delta^2_{\mu} = \partial_{\mu_1} \partial_{\mu_2}$. The subscript $\mu$ is needed to keep track of the **family of indices** which are then contracted in the complete formula. Using this differential operator we may rewrite the previous formula for the action as:
+For example, $\Delta^2_{\mu}=\partial_{\mu_1}\partial_{\mu_2}$, and the subscript $\mu$ is needed to keep track of the **family of indices** which are then contracted in the complete formula. Using this differential operator we may rewrite the previous formula for the action as:
 
 $$
 \int d^4x \ \delta \phi \sum_{i = 0}^n (-1)^i \Delta^i \frac{\partial \mathscr{L}}{\partial (\Delta^i_{\mu} \phi)}
